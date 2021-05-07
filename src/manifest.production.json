@@ -1,0 +1,39 @@
+{
+    "manifest_version": 2,
+    "name": "vue-extension-template",
+    "description": "vue chrome extension template",
+    "version": "0.0.1",
+//    "options_page": "options.html",
+    "permissions": [
+        "tabs",
+        "cookies",
+        "storage",
+        "webRequest",
+        "webRequestBlocking",
+        "*://*.linkedin.com/*"
+    ],
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "content_scripts": [{
+        "matches": [
+            "*://*.linkedin.com/*"
+        ],
+        "css": [
+            "css/content.css"
+        ],
+        "js": [
+            "js/content.js"
+        ],
+        "run_at": "document_end"
+    }],
+    "web_accessible_resources": [
+        "fonts/*",
+        "assets/*"
+    ],
+    "homepage_url": "https://db.capvision.com"
+}
